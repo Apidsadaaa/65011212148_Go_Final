@@ -53,13 +53,11 @@ func loginCustomer(c *gin.Context) {
 		c.JSON(http.StatusNotFound, gin.H{"error": "Customer not found"})
 		return
 	}
-
 	// ตรวจสอบรหัสผ่าน
 	if customer.Password != request.Password {
 		c.JSON(http.StatusUnauthorized, gin.H{"error": "Invalid password"})
 		return
 	}
-
 	// ส่งข้อมูลลูกค้าที่ผ่านการตรวจสอบแล้ว
 	c.JSON(http.StatusOK, gin.H{"customer": customer})
 }
