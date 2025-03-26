@@ -6,5 +6,7 @@ func StartServer() {
 
 	router := gin.Default()
 	CustomerController(router)
+	ProductController(router)
+	CartController(router)
 	router.Run()
 }
